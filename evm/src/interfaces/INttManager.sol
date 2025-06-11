@@ -69,6 +69,16 @@ interface INttManager is IManagerBase {
     /// @param amount The amount of the transfer being cancelled
     event OutboundTransferCancelled(uint256 sequence, address recipient, uint256 amount);
 
+    event NttMessagePayload(TransceiverStructs.NativeTokenTransfer nttMessagePayload);
+
+    event EncodedNttManagerPayload(bytes encodedNttManagerPayload);
+    
+    event AdditionalPayload(
+        uint16 sourceChainId,
+        bytes32 sourceNttManagerAddress,
+        bytes32 id,
+        bytes32 sender);
+        
     event AdditionalPayload2(string customPayload);
 
     /// @notice The transfer has some dust.
@@ -202,6 +212,7 @@ interface INttManager is IManagerBase {
         bytes32 digest
     ) external;
 
+    /// todo syj 待确认
     /// @notice Called by an Endpoint contract to deliver a verified attestation.
     /// @dev This function enforces attestation threshold and replay logic for messages. Once all
     ///      validations are complete, this function calls `executeMsg` to execute the command specified

@@ -1,0 +1,93 @@
+No files changed, compilation skipped
+Script ran successfully.
+
+== Logs ==
+  Deploying Wormhole Ntt...
+  NttManager: 0xA54f7E03cA136892844A22d51B18f4E0bDb25ca3
+  WormholeTransceiver: 0x141d2229fc876937DF3e2F18676f06de1fC21400
+  Transceiver address set on NttManager:  0x141d2229fc876937DF3e2F18676f06de1fC21400
+  Outbound rate limit set on NttManager:  184467440737095516150000000000
+  Threshold set on NttManager: 1
+
+SKIPPING ON CHAIN SIMULATION.
+
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+##
+Start verification for (4) contracts
+Start verifying contract `0x884aaC7088a1Da17AEe041b76A261033E73c9E9D` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    200
+Constructor args: 000000000000000000000000c2234c848e65200507d06245109b7e491679228e0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000271300000000000000000000000000000000000000000000000000000000000151800000000000000000000000000000000000000000000000000000000000000000
+
+Submitting verification for [src/NttManager/NttManager.sol:NttManager] 0x884aaC7088a1Da17AEe041b76A261033E73c9E9D.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `ipqxeg3hrbdfwwtj9qei2lb2mznysgiftitfrzgvnrpxddmgta`
+	URL: https://sepolia.arbiscan.io/address/0x884aac7088a1da17aee041b76a261033e73c9e9d
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+Start verifying contract `0xA54f7E03cA136892844A22d51B18f4E0bDb25ca3` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    200
+Constructor args: 000000000000000000000000884aac7088a1da17aee041b76a261033e73c9e9d00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000
+
+Submitting verification for [lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol:ERC1967Proxy] 0xA54f7E03cA136892844A22d51B18f4E0bDb25ca3.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `1evu4xnnbetvqbunnccmuaj9wcxepjdh5hfujyems3psdsaewq`
+	URL: https://sepolia.arbiscan.io/address/0xa54f7e03ca136892844a22d51b18f4e0bdb25ca3
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `NOTOK`
+Details: `Already Verified`
+Contract source code already verified
+Start verifying contract `0xe977Ad81643CF5d88Fb87F2fEEE52b339dd6147a` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    200
+Constructor args: 000000000000000000000000a54f7e03ca136892844a22d51b18f4e0bdb25ca30000000000000000000000006b9c8671cddc8deab9c719bb87cbd3e782ba6a350000000000000000000000007b1bd7a6b4e61c2a123ac6bc2cbfc614437d047000000000000000000000000063be47835c7d66c4aa5b2c688dc6ed9771c94c7400000000000000000000000000000000000000000000000000000000000000ca000000000000000000000000000000000000000000000000000000000007a120
+
+Submitting verification for [src/Transceiver/WormholeTransceiver/WormholeTransceiver.sol:WormholeTransceiver] 0xe977Ad81643CF5d88Fb87F2fEEE52b339dd6147a.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `fb4ffrwnyta9zr2brzkzeqxfurlix52i9yuceq2pymzlliuyqs`
+	URL: https://sepolia.arbiscan.io/address/0xe977ad81643cf5d88fb87f2feee52b339dd6147a
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+Start verifying contract `0x141d2229fc876937DF3e2F18676f06de1fC21400` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    200
+Constructor args: 000000000000000000000000e977ad81643cf5d88fb87f2feee52b339dd6147a00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000
+
+Submitting verification for [lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol:ERC1967Proxy] 0x141d2229fc876937DF3e2F18676f06de1fC21400.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `s1uwcrdnlq6crurszbnqy1yw1hqcucnet5d2pfmdzqedimw6ku`
+	URL: https://sepolia.arbiscan.io/address/0x141d2229fc876937df3e2f18676f06de1fc21400
+Contract verification status:
+Response: `NOTOK`
+Details: `Already Verified`
+Contract source code already verified
+All (4) contracts were verified!
+
+Transactions saved to: /Users/gavin/vsc_workspace/wormhole-course/ntt-custom-payload2/evm/broadcast/DeployWormholeNtt.s.sol/421614/run-latest.json
+
+Sensitive values saved to: /Users/gavin/vsc_workspace/wormhole-course/ntt-custom-payload2/evm/cache/DeployWormholeNtt.s.sol/421614/run-latest.json
+

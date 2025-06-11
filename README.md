@@ -57,3 +57,12 @@ The action identifier specifies the runtime. Currently, these are as follows:
 :warning: This software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. Or plainly spoken - this is a very complex piece of software which targets a bleeding-edge, experimental smart contract runtime. Mistakes happen, and no matter how hard you try and whether you pay someone to audit it, it may eat your tokens, set your printer on fire or startle your cat. Cryptocurrencies are a high-risk investment, no matter how fancy.
 
 Wormhole contributors encourage integrators to evaluate their own regulatory obligations when integrating this code into their products, including, but not limited to, those related to economic or trade sanctions compliance.
+
+Source Chain Tx:
+  https://sepolia-optimism.etherscan.io/tx/0x1dfbed30fd89fe215ce88ce722a421949fc6cfbc768ac66fc8f22d986b69d46a#eventlog
+
+  wormhole scan -> payload -> parsedPayload -> nttMessage -> additionalPayload: https://wormholescan.io/#/tx/0x1dfbed30fd89fe215ce88ce722a421949fc6cfbc768ac66fc8f22d986b69d46a?network=Testnet&view=advanced
+
+Target Chain Tx:
+  https://sepolia.arbiscan.io/tx/0x98ded06ab95ad09a4ff2087ae7ef1d40d993392fff8a1adccd05971854a9e038#eventlog
+

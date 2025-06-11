@@ -6,12 +6,12 @@
       "mode": "burning",
       "paused": false,
       "owner": "0xAe3759Ccc3E0877fFBb4d533a88Bf9AD0F2Df3F8",
-      "manager": "0x4a545E8df52d135b67B4450e94b276815653F8E9",
-      "token": "0x8df8c6FD0ECf36425082c5C02e77ab2c2D5d85f2",
+      "manager": "0x478958b990004dC8e3402bAbCAa6BEFdC34453ec",
+      "token": "0xe1Af27b4D87728C660d2683205a222EDE5Fe5238",
       "transceivers": {
         "threshold": 1,
         "wormhole": {
-          "address": "0x90aD8bc09c0fb102FA90f6b5b74b9fC926D0018D",
+          "address": "0xbC48273BE4e095aE14990Ee500eaDA96cE112a0C",
           "pauser": "0xAe3759Ccc3E0877fFBb4d533a88Bf9AD0F2Df3F8"
         }
       },
@@ -28,12 +28,12 @@
       "mode": "burning",
       "paused": false,
       "owner": "0xAe3759Ccc3E0877fFBb4d533a88Bf9AD0F2Df3F8",
-      "manager": "0xA54f7E03cA136892844A22d51B18f4E0bDb25ca3",
-      "token": "0xC2234C848e65200507d06245109b7e491679228E",
+      "manager": "0xfE80c65AB3fB965913958210Fe3B786041C31349",
+      "token": "0xeF0B66f435223B369c87DfBf0E3060E024Ca26BF",
       "transceivers": {
         "threshold": 1,
         "wormhole": {
-          "address": "0x141d2229fc876937DF3e2F18676f06de1fC21400",
+          "address": "0x746fAE3Ad2f2514DB8B3F342FeDbD979e6455808",
           "pauser": "0xAe3759Ccc3E0877fFBb4d533a88Bf9AD0F2Df3F8"
         }
       },

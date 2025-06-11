@@ -261,19 +261,21 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
 
     /// @dev Override this function to process an additional payload on the NativeTokenTransfer
     /// For integrator flexibility, this function is *not* marked pure or view
-    /// @param - The Wormhole chain id of the sender
-    /// @param - The address of the sender's NTT Manager contract.
-    /// @param - The message id from the NttManagerMessage.
-    /// @param - The original message sender address from the NttManagerMessage.
-    /// @param - The parsed NativeTokenTransfer, which includes the additionalPayload field
+    /// @param sourceChainId The Wormhole chain id of the sender
+    /// @param sourceNttManagerAddress The address of the sender's NTT Manager contract.
+    /// @param id The message id from the NttManagerMessage.
+    /// @param sender The original message sender address from the NttManagerMessage.
+    /// @param nativeTokenTransfer The parsed NativeTokenTransfer, which includes the additionalPayload field
     function _handleAdditionalPayload(
-        uint16, // sourceChainId
-        bytes32, // sourceNttManagerAddress
-        bytes32, // id
-        bytes32, // sender
+        uint16 sourceChainId,
+        bytes32 sourceNttManagerAddress,
+        bytes32 id,
+        bytes32 sender,
         TransceiverStructs.NativeTokenTransfer memory nativeTokenTransfer
     ) internal virtual {
         string memory customPayload = abi.decode(nativeTokenTransfer.additionalPayload, (string));
+        emit AdditionalPayload(sourceChainId, sourceNttManagerAddress, id, sender);
+        
         emit AdditionalPayload2(customPayload);
     }
 
@@ -547,6 +549,8 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
             amount, recipient, recipientChain, seq, sender, refundAddress
         );
 
+        emit NttMessagePayload(ntt);
+
         // construct the NttManagerMessage payload
         bytes memory encodedNttManagerPayload = TransceiverStructs.encodeNttManagerMessage(
             TransceiverStructs.NttManagerMessage(
@@ -556,6 +560,8 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
             )
         );
 
+        emit EncodedNttManagerPayload(encodedNttManagerPayload);
+        
         // push onto the stack again to avoid stack too deep error
         uint16 destinationChain = recipientChain;
 
