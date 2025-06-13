@@ -30,11 +30,21 @@ contract DeployWormholeNttBase is ParseNttConfig {
         uint8 consistencyLevel;
         uint256 gasLimit;
         uint256 outboundLimit;
+        address customPayloadContract;
     }
 
     // The minimum gas limit to verify a message on mainnet. If you're worried about saving
     // gas on testnet, pick up the phone and start dialing!
     uint256 constant MIN_WORMHOLE_GAS_LIMIT = 150000;
+
+    function deployCustomPayloadContract() public returns (address) {
+        CustomPayloadContract customPayloadContract = new CustomPayloadContract();
+
+        console2.log("CustomPayloadContract:", address(customPayloadContract));
+
+        return address(customPayloadContract);
+    }
+
 
     function deployNttManager(
         DeploymentParams memory params
@@ -46,7 +56,8 @@ contract DeployWormholeNttBase is ParseNttConfig {
             params.mode,
             params.wormholeChainId,
             params.rateLimitDuration,
-            params.shouldSkipRatelimiter
+            params.shouldSkipRatelimiter,
+            params.customPayloadContract
         );
 
         // NttManager Proxy
@@ -87,14 +98,6 @@ contract DeployWormholeNttBase is ParseNttConfig {
         return address(transceiverProxy);
     }
 
-    function deployCustomPayloadContract() public returns (address) {
-        CustomPayloadContract customPayloadContract = new CustomPayloadContract();
-
-        console2.log("CustomPayloadContract:", address(customPayloadContract));
-
-        return address(customPayloadContract);
-    }
-
     function configureNttManager(
         address nttManager,
         address transceiver,
@@ -104,9 +107,6 @@ contract DeployWormholeNttBase is ParseNttConfig {
     ) public {
         IManagerBase(nttManager).setTransceiver(transceiver);
         console2.log("Transceiver address set on NttManager: ", transceiver);
-
-        IManagerBase(nttManager).setCustomPayloadContract(customPayloadContract);
-        console2.log("CustomPayloadContract address set on NttManager: ", customPayloadContract);   
 
         if (!shouldSkipRateLimiter) {
             INttManager(nttManager).setOutboundLimit(outboundLimit);

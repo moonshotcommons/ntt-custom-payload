@@ -40,13 +40,16 @@ abstract contract ManagerBase is
     /// This chain ID is formatted based on standardized chain IDs, e.g. Ethereum mainnet is 1, Sepolia is 11155111, etc.
     uint256 immutable evmChainId;
 
+    address public immutable customPayloadContract;
+
     // =============== Setup =================================================================
 
-    constructor(address _token, Mode _mode, uint16 _chainId) {
+    constructor(address _token, Mode _mode, uint16 _chainId, address _customPayloadContract) {
         token = _token;
         mode = _mode;
         chainId = _chainId;
         evmChainId = block.chainid;
+        customPayloadContract = _customPayloadContract;
         // save the deployer (check this on initialization)
         deployer = msg.sender;
     }
@@ -357,17 +360,6 @@ abstract contract ManagerBase is
         for (uint256 i = 0; i < _registeredTransceivers.length; i++) {
             ITransceiver(_registeredTransceivers[i]).transferTransceiverOwnership(newOwner);
         }
-    }
-
-    /// @inheritdoc IManagerBase
-    function setCustomPayloadContract(
-        address _customPayloadContract
-    ) external onlyOwner {
-        _getCustomPayloadContractStorage().addr = _customPayloadContract;
-    }
-
-    function getCustomPayloadContract() external view returns (address) {
-        return _getCustomPayloadContractStorage().addr;
     }
 
     /// @inheritdoc IManagerBase

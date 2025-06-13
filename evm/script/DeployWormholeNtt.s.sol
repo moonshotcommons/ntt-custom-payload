@@ -63,6 +63,7 @@ contract DeployWormholeNtt is Script, DeployWormholeNttBase {
         uint256 scale =
             decimals > TRIMMED_DECIMALS ? uint256(10 ** (decimals - TRIMMED_DECIMALS)) : 1;
 
+        address _customPayloadContract = deployCustomPayloadContract();
         DeploymentParams memory params = DeploymentParams({
             token: token,
             mode: mode,
@@ -75,7 +76,8 @@ contract DeployWormholeNtt is Script, DeployWormholeNttBase {
             consistencyLevel: 202,
             gasLimit: 500000,
             // the trimming will trim this number to uint64.max
-            outboundLimit: uint256(type(uint64).max) * scale
+            outboundLimit: uint256(type(uint64).max) * scale,
+            customPayloadContract: _customPayloadContract
         });
 
         // Deploy NttManager.
@@ -100,6 +102,7 @@ contract DeployWormholeNtt is Script, DeployWormholeNttBase {
     ) public {
         vm.startBroadcast();
 
+        address _customPayloadContract = deployCustomPayloadContract();
         NttManager nttManager = NttManager(manager);
 
         console.log("Upgrading manager...");
@@ -112,7 +115,8 @@ contract DeployWormholeNtt is Script, DeployWormholeNttBase {
             nttManager.mode(),
             nttManager.chainId(),
             nttManager.rateLimitDuration(),
-            shouldSkipRatelimiter
+            shouldSkipRatelimiter,
+            _customPayloadContract
         );
 
         nttManager.upgrade(address(implementation));

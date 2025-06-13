@@ -51,8 +51,9 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
         Mode _mode,
         uint16 _chainId,
         uint64 _rateLimitDuration,
-        bool _skipRateLimiting
-    ) RateLimiter(_rateLimitDuration, _skipRateLimiting) ManagerBase(_token, _mode, _chainId) {}
+        bool _skipRateLimiting,
+        address _customPayloadContract
+    ) RateLimiter(_rateLimitDuration, _skipRateLimiting) ManagerBase(_token, _mode, _chainId, _customPayloadContract) {}
 
     function __NttManager_init() internal onlyInitializing {
         // check if the owner is the deployer of this contract
@@ -274,8 +275,6 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
         bytes32 sender,
         TransceiverStructs.NativeTokenTransfer memory nativeTokenTransfer
     ) internal virtual {
-        address customPayloadContract = _getCustomPayloadContractStorage().addr;
-
         ICustomPayloadContract(customPayloadContract).receiveBlessMessage(nativeTokenTransfer.additionalPayload);
 
         emit AdditionalPayload(sourceChainId, sourceNttManagerAddress, id, sender);
@@ -617,10 +616,8 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
         address sender,
         bytes32 // refundAddress
     ) internal virtual returns (TransceiverStructs.NativeTokenTransfer memory) {
-        address customPayloadContract = _getCustomPayloadContractStorage().addr;
-
         bytes memory blessMessage = ICustomPayloadContract(customPayloadContract).sendBlessMessage(chainId, sender, amount,
-        recipientChain, address(uint160(uint256(recipient))));
+            recipientChain, address(uint160(uint256(recipient))));
 
         return TransceiverStructs.NativeTokenTransfer(
             amount, toWormholeFormat(token), recipient, recipientChain, blessMessage

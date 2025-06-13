@@ -15,7 +15,7 @@ contract NttManagerNoRateLimiting is NttManager {
         address _token,
         Mode _mode,
         uint16 _chainId
-    ) NttManager(_token, _mode, _chainId, 0, true) {}
+    ) NttManager(_token, _mode, _chainId, 0, true, address(0)) {}
 
     // ==================== Override RateLimiter functions =========================
 

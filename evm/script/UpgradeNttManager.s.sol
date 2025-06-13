@@ -18,6 +18,7 @@ contract UpgradeNttManager is ParseNttConfig {
         uint16 wormholeChainId;
         uint64 rateLimitDuration;
         bool shouldSkipRatelimiter;
+        address customPayloadContract;
     }
 
     function upgradeNttManager(
@@ -30,7 +31,8 @@ contract UpgradeNttManager is ParseNttConfig {
             params.mode,
             params.wormholeChainId,
             params.rateLimitDuration,
-            params.shouldSkipRatelimiter
+            params.shouldSkipRatelimiter,
+            params.customPayloadContract
         );
 
         console2.log("NttManager Implementation deployed at: ", address(implementation));

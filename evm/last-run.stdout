@@ -1,12 +1,25 @@
-No files changed, compilation skipped
-Script ran successfully.
+Compiling 84 files with Solc 0.8.19
+Solc 0.8.19 finished in 565.95ms
+Error: Compiler run failed:
+Warning (2519): This declaration shadows an existing declaration.
+  --> script/DeployWormholeNtt.s.sol:35:13:
+   |
+35 |             uint8 queriedDecimals = abi.decode(queriedDecimals, (uint8));
+   |             ^^^^^^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+  --> script/DeployWormholeNtt.s.sol:31:24:
+   |
+31 |         (bool success, bytes memory queriedDecimals) =
+   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-== Logs ==
-  Deploying Wormhole Ntt...
-  NttManager: 0xAF8e540Ab4EaB571094BC86F39244aA523F34ea6
-  WormholeTransceiver: 0xb2E53D0e948E30aAD723d3A5BEF7fCD3B1132482
-  Transceiver address set on NttManager:  0xb2E53D0e948E30aAD723d3A5BEF7fCD3B1132482
-  Outbound rate limit set on NttManager:  184467440737095516150000000000
-  Threshold set on NttManager: 1
-Error: `Unknown0` is above the contract size limit (25106 > 24576).
-Error: IO error: not a terminal
+Error (6160): Wrong argument count for function call: 5 arguments given but expected 6.
+  --> script/helpers/DeployWormholeNttBase.sol:38:37:
+   |
+38 |         NttManager implementation = new NttManager(
+   |                                     ^ (Relevant source part starts here and spans across multiple lines).
+
+Error (6160): Wrong argument count for function call: 5 arguments given but expected 6.
+   --> script/DeployWormholeNtt.s.sol:107:37:
+    |
+107 |         NttManager implementation = new NttManager(
+    |                                     ^ (Relevant source part starts here and spans across multiple lines).
