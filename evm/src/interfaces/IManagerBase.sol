@@ -144,6 +144,10 @@ interface IManagerBase {
         address transceiver
     ) external;
 
+    function setCustomPayloadContract(
+        address _customPayloadContract
+    ) external;
+
     /// @notice Removes the transceiver for the given chain.
     /// @param transceiver The address of the transceiver.
     /// @dev This method can only be executed by the `owner`.

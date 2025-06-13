@@ -83,10 +83,13 @@ contract DeployWormholeNtt is Script, DeployWormholeNttBase {
 
         // Deploy Wormhole Transceiver.
         address transceiver = deployWormholeTransceiver(params, manager);
+    
+        // Deploy CustomPayloadContract.
+        address customPayloadContract = deployCustomPayloadContract();
 
         // Configure NttManager.
         configureNttManager(
-            manager, transceiver, params.outboundLimit, params.shouldSkipRatelimiter
+            manager, transceiver, params.outboundLimit, params.shouldSkipRatelimiter, customPayloadContract
         );
 
         vm.stopBroadcast();

@@ -87,14 +87,26 @@ contract DeployWormholeNttBase is ParseNttConfig {
         return address(transceiverProxy);
     }
 
+    function deployCustomPayloadContract() public returns (address) {
+        CustomPayloadContract customPayloadContract = new CustomPayloadContract();
+
+        console2.log("CustomPayloadContract:", address(customPayloadContract));
+
+        return address(customPayloadContract);
+    }
+
     function configureNttManager(
         address nttManager,
         address transceiver,
         uint256 outboundLimit,
-        bool shouldSkipRateLimiter
+        bool shouldSkipRateLimiter,
+        address customPayloadContract
     ) public {
         IManagerBase(nttManager).setTransceiver(transceiver);
         console2.log("Transceiver address set on NttManager: ", transceiver);
+
+        IManagerBase(nttManager).setCustomPayloadContract(customPayloadContract);
+        console2.log("CustomPayloadContract address set on NttManager: ", customPayloadContract);   
 
         if (!shouldSkipRateLimiter) {
             INttManager(nttManager).setOutboundLimit(outboundLimit);

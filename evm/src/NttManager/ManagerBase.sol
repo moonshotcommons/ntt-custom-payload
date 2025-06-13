@@ -359,6 +359,7 @@ abstract contract ManagerBase is
         }
     }
 
+    /// @inheritdoc IManagerBase
     function setCustomPayloadContract(
         address _customPayloadContract
     ) external onlyOwner {
