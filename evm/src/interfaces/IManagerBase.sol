@@ -31,6 +31,10 @@ interface IManagerBase {
         uint8 num;
     }
 
+    struct _CustomPayloadContract {
+        address addr;
+    }
+
     /// @notice Emitted when a message has been attested to.
     /// @dev Topic0
     ///      0x35a2101eaac94b493e0dfca061f9a7f087913fde8678e7cde0aca9897edba0e5.
@@ -60,6 +64,13 @@ interface IManagerBase {
     /// @param transceiver The address of the transceiver.
     /// @param threshold The current threshold of transceivers.
     event TransceiverRemoved(address transceiver, uint8 threshold);
+
+    /// @notice Emitted when the custom payload contract is set.
+    /// @dev Topic0
+    ///     0x697a3853515b88013ad432f29f53d406debc9509ed6d9313dcfe115250fcd18f.
+    /// @param customPayloadContract The address of the custom payload contract.
+    event CustomPayloadContractSet(address customPayloadContract);
+
 
     /// @notice payment for a transfer is too low.
     /// @param requiredPayment The required payment.

@@ -66,6 +66,9 @@ abstract contract ManagerBase is
 
     bytes32 private constant THRESHOLD_SLOT = bytes32(uint256(keccak256("ntt.threshold")) - 1);
 
+    bytes32 private constant CUSTOMPAYLOAD_CONTRACT_SLOT =
+        bytes32(uint256(keccak256("ntt.customPayloadContract")) - 1);
+
     // =============== Storage Getters/Setters ==============================================
 
     function _getThresholdStorage() private pure returns (_Threshold storage $) {
@@ -88,6 +91,13 @@ abstract contract ManagerBase is
 
     function _getMessageSequenceStorage() internal pure returns (_Sequence storage $) {
         uint256 slot = uint256(MESSAGE_SEQUENCE_SLOT);
+        assembly ("memory-safe") {
+            $.slot := slot
+        }
+    }
+
+    function _getCustomPayloadContractStorage() internal pure returns (_CustomPayloadContract storage $) {
+        uint256 slot = uint256(CUSTOMPAYLOAD_CONTRACT_SLOT);
         assembly ("memory-safe") {
             $.slot := slot
         }
@@ -347,6 +357,17 @@ abstract contract ManagerBase is
         for (uint256 i = 0; i < _registeredTransceivers.length; i++) {
             ITransceiver(_registeredTransceivers[i]).transferTransceiverOwnership(newOwner);
         }
+    }
+
+    function setCustomPayloadContract(
+        address _customPayloadContract
+    ) external onlyOwner {
+        _getCustomPayloadContractStorage().addr = _customPayloadContract;
+        emit CustomPayloadContractSet(_customPayloadContract);
+    }
+
+    function getCustomPayloadContract() external view returns (address) {
+        return _getCustomPayloadContractStorage().addr;
     }
 
     /// @inheritdoc IManagerBase

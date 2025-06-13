@@ -12,6 +12,7 @@ import "../libraries/RateLimiter.sol";
 import "../interfaces/INttManager.sol";
 import "../interfaces/INttToken.sol";
 import "../interfaces/ITransceiver.sol";
+import "../interfaces/ICustomPayloadContract.sol";
 
 import {ManagerBase} from "./ManagerBase.sol";
 
@@ -273,10 +274,12 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
         bytes32 sender,
         TransceiverStructs.NativeTokenTransfer memory nativeTokenTransfer
     ) internal virtual {
-        string memory customPayload = abi.decode(nativeTokenTransfer.additionalPayload, (string));
+        address customPayloadContract = _getCustomPayloadContractStorage().addr;
+
+        ICustomPayloadContract(customPayloadContract).receiveBlessMessage(nativeTokenTransfer.additionalPayload);
+
         emit AdditionalPayload(sourceChainId, sourceNttManagerAddress, id, sender);
         
-        emit AdditionalPayload2(customPayload);
     }
 
     function _enqueueOrConsumeInboundRateLimit(
@@ -611,11 +614,16 @@ contract NttManager is INttManager, RateLimiter, ManagerBase {
         bytes32 recipient,
         uint16 recipientChain,
         uint64, // sequence
-        address, // sender
+        address sender,
         bytes32 // refundAddress
     ) internal virtual returns (TransceiverStructs.NativeTokenTransfer memory) {
+        address customPayloadContract = _getCustomPayloadContractStorage().addr;
+
+        bytes memory blessMessage = ICustomPayloadContract(customPayloadContract).sendBlessMessage(chainId, sender, amount,
+        recipientChain, address(uint160(uint256(recipient))));
+
         return TransceiverStructs.NativeTokenTransfer(
-            amount, toWormholeFormat(token), recipient, recipientChain, abi.encode("Hello World, GM")
+            amount, toWormholeFormat(token), recipient, recipientChain, blessMessage
         );
     }
 

@@ -11,6 +11,7 @@ import {NttManager} from "../../src/NttManager/NttManager.sol";
 import {WormholeTransceiver} from
     "../../src/Transceiver/WormholeTransceiver/WormholeTransceiver.sol";
 import {ERC1967Proxy} from "openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol";
+import {CustomPayloadContract} from "../../src/CustomPayloadContract.sol";
 
 interface IWormhole {
     function messageFee() external view returns (uint256);
@@ -38,6 +39,7 @@ contract DeployWormholeNttBase is ParseNttConfig {
     function deployNttManager(
         DeploymentParams memory params
     ) internal returns (address) {
+
         // Deploy the Manager Implementation.
         NttManager implementation = new NttManager(
             params.token,
