@@ -1,6 +1,4 @@
-Compiling 1 files with Solc 0.8.19
-Solc 0.8.19 finished in 597.15ms
-Compiler run successful!
+No files changed, compilation skipped
 Script ran successfully.
 
 == Logs ==
@@ -10,5 +8,5 @@ Script ran successfully.
   Transceiver address set on NttManager:  0xb2E53D0e948E30aAD723d3A5BEF7fCD3B1132482
   Outbound rate limit set on NttManager:  184467440737095516150000000000
   Threshold set on NttManager: 1
-Error: `Unknown0` is above the contract size limit (25148 > 24576).
+Error: `Unknown0` is above the contract size limit (25106 > 24576).
 Error: IO error: not a terminal

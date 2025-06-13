@@ -364,7 +364,6 @@ abstract contract ManagerBase is
         address _customPayloadContract
     ) external onlyOwner {
         _getCustomPayloadContractStorage().addr = _customPayloadContract;
-        emit CustomPayloadContractSet(_customPayloadContract);
     }
 
     function getCustomPayloadContract() external view returns (address) {
