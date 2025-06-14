@@ -202,7 +202,7 @@ async function withCustomEvmDeployerScript<A>(pwd: string, then: () => Promise<A
             const old = `${path}.old`;
             if (fs.existsSync(old)) {
                 fs.copyFileSync(old, path);
-                fs.unlinkSync(old);
+                // fs.unlinkSync(old);
             }
         }
     }
@@ -1231,7 +1231,7 @@ async function deployEvm<N extends Network, C extends Chain>(
         stdio: "pipe"
     });
 
-    console.log("Deploying manager...");
+    console.log("syj ---- Deploying manager...");
     const deploy = async (simulate: boolean): Promise<string> => {
         const simulateArg = simulate ? "" : "--skip-simulation";
         await withCustomEvmDeployerScript(pwd, async () => {
@@ -1241,7 +1241,10 @@ forge script --via-ir script/DeployWormholeNtt.s.sol \
 --rpc-url ${rpc} \
 ${simulateArg} \
 --sig "${sig}" ${wormhole} ${token} ${relayer} ${specialRelayer} ${decimals} ${modeUint} \
---broadcast ${verifyArgs.join(' ')} ${signerArgs} 2>&1 | tee last-run.stdout`, {
+--broadcast ${verifyArgs.join(' ')} ${signerArgs} \
+--optimize \
+--optimizer-runs 400 \
+2>&1 | tee last-run.stdout`, {
                         cwd: `${pwd}/evm`,
                         encoding: 'utf8',
                         stdio: 'inherit'

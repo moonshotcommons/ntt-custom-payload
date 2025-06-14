@@ -1,25 +1,136 @@
-Compiling 84 files with Solc 0.8.19
-Solc 0.8.19 finished in 565.95ms
-Error: Compiler run failed:
-Warning (2519): This declaration shadows an existing declaration.
-  --> script/DeployWormholeNtt.s.sol:35:13:
-   |
-35 |             uint8 queriedDecimals = abi.decode(queriedDecimals, (uint8));
-   |             ^^^^^^^^^^^^^^^^^^^^^
-Note: The shadowed declaration is here:
-  --> script/DeployWormholeNtt.s.sol:31:24:
-   |
-31 |         (bool success, bytes memory queriedDecimals) =
-   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+No files changed, compilation skipped
+Script ran successfully.
 
-Error (6160): Wrong argument count for function call: 5 arguments given but expected 6.
-  --> script/helpers/DeployWormholeNttBase.sol:38:37:
-   |
-38 |         NttManager implementation = new NttManager(
-   |                                     ^ (Relevant source part starts here and spans across multiple lines).
+== Logs ==
+  Deploying Wormhole Ntt...
+  CustomPayloadContract: 0x5ECcFcB520cA59C0319c384c1BC874A5CbcFd986
+  NttManager: 0x25395e7A736DBd38894Bf424B192793c07aE51aF
+  WormholeTransceiver: 0x0fE86d8B56FF226c18B0D1092532667fb9D01Ac0
+  Transceiver address set on NttManager:  0x0fE86d8B56FF226c18B0D1092532667fb9D01Ac0
+  Outbound rate limit set on NttManager:  184467440737095516150000000000
+  Threshold set on NttManager: 1
 
-Error (6160): Wrong argument count for function call: 5 arguments given but expected 6.
-   --> script/DeployWormholeNtt.s.sol:107:37:
-    |
-107 |         NttManager implementation = new NttManager(
-    |                                     ^ (Relevant source part starts here and spans across multiple lines).
+SKIPPING ON CHAIN SIMULATION.
+
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+##
+Start verification for (6) contracts
+Start verifying contract `0xC5cCFd6E5f4A8b2E11aE96B25893425BFCaD101a` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    100
+
+Submitting verification for [src/libraries/TransceiverStructs.sol:TransceiverStructs] 0xC5cCFd6E5f4A8b2E11aE96B25893425BFCaD101a.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `mmtwqdn7vdenhiykx5rfrrjyi9cnyeikr75lwdelwd9trlq2wu`
+	URL: https://sepolia.arbiscan.io/address/0xc5ccfd6e5f4a8b2e11ae96b25893425bfcad101a
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+Start verifying contract `0x5ECcFcB520cA59C0319c384c1BC874A5CbcFd986` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    100
+
+Submitting verification for [src/CustomPayloadContract.sol:CustomPayloadContract] 0x5ECcFcB520cA59C0319c384c1BC874A5CbcFd986.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `81rnswtubg1z9gvjwaelpjr5iniszyjbi4xhu3eaj22xlnusx6`
+	URL: https://sepolia.arbiscan.io/address/0x5eccfcb520ca59c0319c384c1bc874a5cbcfd986
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+Start verifying contract `0xe1Af27b4D87728C660d2683205a222EDE5Fe5238` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    100
+Constructor args: 000000000000000000000000d3dba4e5cb7c31302ce1feb95066538db3061edc00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000002713000000000000000000000000000000000000000000000000000000000001518000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005eccfcb520ca59c0319c384c1bc874a5cbcfd986
+
+Submitting verification for [src/NttManager/NttManager.sol:NttManager] 0xe1Af27b4D87728C660d2683205a222EDE5Fe5238.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `ppmjxp9k55mbmdxqg5jnrtmftmhtjmjqutivpayhzzyanifqsm`
+	URL: https://sepolia.arbiscan.io/address/0xe1af27b4d87728c660d2683205a222ede5fe5238
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (6 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+Start verifying contract `0x25395e7A736DBd38894Bf424B192793c07aE51aF` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    100
+Constructor args: 000000000000000000000000e1af27b4d87728c660d2683205a222ede5fe523800000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000
+
+Submitting verification for [lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol:ERC1967Proxy] 0x25395e7A736DBd38894Bf424B192793c07aE51aF.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `7q9agwu8gayf2jlwguvcbgx2esvbrjgttyeuhklmsgjnaiyeqr`
+	URL: https://sepolia.arbiscan.io/address/0x25395e7a736dbd38894bf424b192793c07ae51af
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+Start verifying contract `0x478958b990004dC8e3402bAbCAa6BEFdC34453ec` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    100
+Constructor args: 00000000000000000000000025395e7a736dbd38894bf424b192793c07ae51af0000000000000000000000006b9c8671cddc8deab9c719bb87cbd3e782ba6a350000000000000000000000007b1bd7a6b4e61c2a123ac6bc2cbfc614437d047000000000000000000000000063be47835c7d66c4aa5b2c688dc6ed9771c94c7400000000000000000000000000000000000000000000000000000000000000ca000000000000000000000000000000000000000000000000000000000007a120
+
+Submitting verification for [src/Transceiver/WormholeTransceiver/WormholeTransceiver.sol:WormholeTransceiver] 0x478958b990004dC8e3402bAbCAa6BEFdC34453ec.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `3luplrs7vp2igxwen3wrfv88bunaswkgm1hvqdcn3bqxl9rmtx`
+	URL: https://sepolia.arbiscan.io/address/0x478958b990004dc8e3402babcaa6befdc34453ec
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+Start verifying contract `0x0fE86d8B56FF226c18B0D1092532667fb9D01Ac0` deployed on arbitrum-sepolia
+Compiler version: 0.8.19
+Optimizations:    100
+Constructor args: 000000000000000000000000478958b990004dc8e3402babcaa6befdc34453ec00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000
+
+Submitting verification for [lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol:ERC1967Proxy] 0x0fE86d8B56FF226c18B0D1092532667fb9D01Ac0.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: `vwjyc7dmer4ifzwkvgqzfaqgne6an3wbhkrqxepah4zmkkmrur`
+	URL: https://sepolia.arbiscan.io/address/0x0fe86d8b56ff226c18b0d1092532667fb9d01ac0
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `NOTOK`
+Details: `Already Verified`
+Contract source code already verified
+All (6) contracts were verified!
+
+Transactions saved to: /Users/gavin/vsc_workspace/wormhole-course/ntt-custom-payload2/evm/broadcast/DeployWormholeNtt.s.sol/421614/run-latest.json
+
+Sensitive values saved to: /Users/gavin/vsc_workspace/wormhole-course/ntt-custom-payload2/evm/cache/DeployWormholeNtt.s.sol/421614/run-latest.json
+
