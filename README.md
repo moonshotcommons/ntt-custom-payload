@@ -66,3 +66,7 @@ Source Chain Tx:
 Target Chain Tx:
   https://sepolia.arbiscan.io/tx/0x98ded06ab95ad09a4ff2087ae7ef1d40d993392fff8a1adccd05971854a9e038#eventlog
 
+-------------------------
+Source Chain Tx:https://sepolia-optimism.etherscan.io/tx/0x04c18d63314afb8019b830552c2730a475071ff896c54b641b639cc757127ebe
+
+Target Chain Tx:https://sepolia.arbiscan.io/tx/0xcd6006d661a1bf15b38ccc6a3b59d6f617390da25cacaa18fc8da28dea6e85e5
